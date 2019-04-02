@@ -6,10 +6,8 @@ try
 {	
 	const { extractIcon } = require('./bindings');
 	// Correct test:
-	// const buffer = extractIcon("C:\\Windows\\System32\\cmd.exe", "large");
-	// Error test:
-	const buffer = extractIcon("C:\\Windows\\System32\\cmd.exe-", "large");
-	const t = assert.strictEqual(4286, buffer.length);
+	const buffer = extractIcon("C:\\Windows\\System32\\cmd.exe", "large");
+	//const t = assert.strictEqual(4286, buffer.length); // Large size
 
 	const fs = require('fs');
 	fs.writeFileSync('test.ico', buffer);

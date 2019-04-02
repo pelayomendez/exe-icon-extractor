@@ -306,14 +306,14 @@ napi_value extractIcon(napi_env env, napi_callback_info info) {
 		}
 
 		HICON* target;
-		if (szType == 5 && memcmp(type, L"small", sizeof(L"small")) == 0) {
+		if (szType == 5 && memcmp(type, L"small", sizeof(L"small")) == 0 && hIconSmall != NULL || hIconLarge == NULL && hIconSmall != NULL) {
 			target = &hIconSmall;
 		}
-		else if (szType == 5 && memcmp(type, L"large", sizeof(L"large")) == 0) {
+		else if (szType == 5 && memcmp(type, L"large", sizeof(L"large")) == 0 && hIconLarge != NULL) {
 			target = &hIconLarge;
 		}
 		else {
-			throw napi_throw_error(env, NULL, "Unknown type (type must either small or large)");
+			throw napi_throw_error(env, NULL, "Unknown icon type (type small or large not found)");
 			return 0;
 		}
 
