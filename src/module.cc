@@ -290,7 +290,12 @@ napi_value extractIcon(napi_env env, napi_callback_info info) {
 		throwIfNotSuccess(env, napi_get_value_string_utf16(env, argv[1], (char16_t*)type, sizeof(type), &szType), "unable to read type");
     	path[szPath] = 0;
     	type[szType] = 0;
-    	
+
+    	// 00 Existence only. 02 Write permission. 04 Read permission. 06 Read and write permission.
+    	if (_waccess_s(&path[0], 4) != 0) {
+    		napi_throw_error(env, NULL, "The icon is not accesible");
+    	}; 
+
 		HICON hIconLarge;
 		HICON hIconSmall;
 
