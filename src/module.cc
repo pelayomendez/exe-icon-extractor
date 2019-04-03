@@ -317,7 +317,7 @@ napi_value extractIcon(napi_env env, napi_callback_info info) {
 			return 0;
 		}
 
-		BYTE buffer[262144];
+		BYTE buffer[(256*256)*4]; // (256x256) Max Windows Icon Size x 4 bytes (32 bits)
 		int written;
 		SaveIcon3(target, 1, buffer, &written);
 
