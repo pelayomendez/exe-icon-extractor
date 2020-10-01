@@ -1,6 +1,6 @@
 {
   "name": "exe-icon-extractor",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Fork of @initthink/exe-icon-extractor",
   "main": "bindings.js",
   "scripts": {

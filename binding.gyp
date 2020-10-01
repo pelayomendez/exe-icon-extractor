@@ -9,10 +9,14 @@
           'cflags': [
             '/EHa',
           ],
+          "sources": ["src/module.cc"],
+          'msvs_settings': {
+            'VCCLCompilerTool': {
+              'ExceptionHandling': '1',    
+              'AdditionalOptions': ['/EHsc']
+            }
+          }
         },],
-      ],
-      "sources": [
-        "src/module.cc"
       ]
     }
   ]
