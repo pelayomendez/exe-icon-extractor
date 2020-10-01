@@ -327,7 +327,7 @@ napi_value extractIcon(napi_env env, napi_callback_info info) {
 
 		return result;
 	}
-	catch(napi_status status){
+	catch(napi_status){
 		return 0;
 	}
 	catch(...) {
